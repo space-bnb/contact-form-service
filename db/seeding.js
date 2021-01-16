@@ -34,7 +34,7 @@ for (let i = 0; i < 100; i ++) {
 
 seeder.connect(db, () => {
 
-  seeder.loadModels(['./index.js']);
+  seeder.loadModels(['./db/index.js']);
 
   seeder.clearModels(['workspace-capacity'], () => {
 
