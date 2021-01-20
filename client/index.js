@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
+import './Styles/main.scss'
 
 const App = () => {
+
+  useEffect(() => {
+    fetch('api/availability/?id=4', {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+  }, [])
+
   return (
-    <h1>Hello World!!</h1>
+    <h1>Form goes here</h1>
   )
 }
 

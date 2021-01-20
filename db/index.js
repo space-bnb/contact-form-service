@@ -11,3 +11,12 @@ let schema = mongoose.Schema({
 });
 
 let capacityModel = mongoose.model('workspace-capacity', schema);
+
+
+const getAvailability = async id => (
+  await capacityModel.findOne({_id: id})
+)
+
+module.exports = {
+  getAvailability
+}
