@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './Styles/main.scss'
+import FormContainer from './Components/FormContainer'
 
 const App = () => {
 
@@ -13,7 +14,9 @@ const App = () => {
   }, [])
 
   return (
-    <h1>Form goes here</h1>
+    <div className="column-container">
+      <FormContainer />
+    </div>
   )
 }
 
