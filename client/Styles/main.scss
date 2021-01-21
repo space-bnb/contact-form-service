@@ -8,6 +8,20 @@ body {
 
 }
 
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.75rem;
+  margin-bottom: 1rem;
+}
+
 .column-container {
   display: flex;
   height: 1000px;
@@ -16,11 +30,9 @@ body {
 }
 
 
-
-
-
 .sticky-form-wrap {
   position: sticky;
+  top: 1rem;
 }
 
 
@@ -28,4 +40,46 @@ body {
   background-color: #f7f7f7;
   border: 1px solid #e3e3e3;
   padding: 2rem 1.5rem 1.5rem;
+
+  .self-serve-cta {
+    padding-bottom: 2em;
+
+    button {
+      background-color: blue;
+      color: #fff;
+    }
+
+    button:hover {
+      background-color: #00c;
+      border-color: #00c;
+    }
+  }
+
+  button {
+    width: 100%;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    display: inline-block;
+    border: .0625rem solid blue;
+    border-radius: .25rem;
+    cursor: pointer;
+    padding: 1.1875rem 1.4375rem;
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: bottom;
+  }
+
+  .book-tour {
+    button {
+      background-color: #fff;
+      color: blue;
+    }
+
+    button:hover {
+      background-color: #ccf;
+    }
+  }
+
 }
