@@ -39,9 +39,34 @@
           height: auto;
           background: transparent;
           color: blue;
+          background-color: #fff;
           z-index: 1000;
         }
 
+      }
+
+      .field.focus.error {
+        border-color: red;
+
+        label {
+          color: red;
+        }
+
+      }
+
+      .field.focus.complete {
+        border-color: #666;
+
+        label {
+          color: #666;
+        }
+      }
+
+      .error-message {
+        color: red;
+        margin-left: .75rem;
+        font-size: 12px;
+        line-height: 1.25rem;
       }
 
       .field {
@@ -50,8 +75,6 @@
         border-radius: .25rem;
         position: relative;
         height: 3.5rem;
-        display: flex;
-
 
 
         label {
@@ -71,7 +94,6 @@
           max-width: calc(100% - 12px);
           white-space: nowrap;
           overflow: hidden;
-          -o-text-overflow: ellipsis;
           text-overflow: ellipsis;
           z-index: 2;
           cursor: text;
