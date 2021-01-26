@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 
 const GetInTouchForm = ( { handleFormChange }) => {
 
-  const [isHidden, toggleHidden] = useState(true);
+  const [isHidden, toggleHidden] = useState({
+    fullName: true,
+    email: true,
+    phone: true
+  });
 
   const handleFormFieldFocus = (e) => {
 
@@ -11,24 +15,26 @@ const GetInTouchForm = ( { handleFormChange }) => {
 
   }
 
-  const handleFieldBlur = (e) => {
+  const handleFieldBlur = (e, name) => {
 
     const field = e.target.parentElement;
-
+    const newState = {...isHidden};
     //can eventually add other helper functions here to do some *basic* front end validation
     if (!e.target.value) {
 
       if (field.classList.contains('complete')) field.classList.remove('complete');
 
       field.classList.add('error');
-      toggleHidden(false);
+      newState[name] = false
+      toggleHidden(newState);
 
     } else {
 
       if (field.classList.contains('error')) field.classList.remove('error');
 
       field.classList.add('complete');
-      toggleHidden(true);
+      newState[name] = true
+      toggleHidden(newState);
 
     }
 
@@ -50,9 +56,9 @@ const GetInTouchForm = ( { handleFormChange }) => {
               name="fullName"
               type="text"
               required
-              onFocus={(e) => {handleFormFieldFocus(e)}}
-              onBlur={(e) => {handleFieldBlur(e)}}/>
-              <div className="error-message" hidden={isHidden}>First and last, please.</div>
+              onFocus={handleFormFieldFocus}
+              onBlur={(e) => {handleFieldBlur(e, e.target.name)}}/>
+              <div className="error-message" hidden={isHidden.fullName}>First and last, please.</div>
           </div>
         </div>
         <div className="form-item">
@@ -63,8 +69,9 @@ const GetInTouchForm = ( { handleFormChange }) => {
               name="email"
               type="email"
               required
-              onClick={(e) => {handleFormFieldFocus(e)}}
-              onBlur={(e) => {handleFieldBlur(e)}}/>
+              onClick={handleFormFieldFocus}
+              onBlur={(e) => {handleFieldBlur(e, e.target.name)}}/>
+              <div className="error-message" hidden={isHidden.email}>We need this for confirmations.</div>
           </div>
         </div>
         <div className="form-item">
@@ -75,28 +82,35 @@ const GetInTouchForm = ( { handleFormChange }) => {
               name="phone"
               type="phone"
               required
-              onClick={(e) => {handleFormFieldFocus(e)}}
-              onBlur={(e) => {handleFieldBlur(e)}}/>
+              onClick={handleFormFieldFocus}
+              onBlur={(e) => {handleFieldBlur(e, e.target.name)}}/>
+              <div className="error-message" hidden={isHidden.phone}>Please give us a way to get in contact.</div>
           </div>
         </div>
-        <div className="form-item cell">
-          <label htmlFor="moveInDateBtn">Move-in date</label>
-          <button id="moveInDataBtn" type="button">Jan 21</button>
-          <input
-            id="moveInDate"
-            name="moveInDate"
-            hidden
-            type="text" />
-        </div>
-        <div className="form-item cell">
-          <label htmlFor="desiredCapacity">Number of People</label>
-          <input
-            id="desiredCapacity"
-            type="number"
-            value="1"
-            required></input>
-          <button>-</button>
-          <button>+</button>
+        <div className="cell-container">
+          <div className="form-item cell">
+            <div className="cell-wrap">
+              <label htmlFor="moveInDateBtn">Move-in date</label>
+              <button id="moveInDataBtn" type="button" className="move-in">Jan 21</button>
+              <input
+                id="moveInDate"
+                name="moveInDate"
+                hidden
+                type="text" />
+            </div>
+          </div>
+          <div className="form-item cell">
+            <div className="cell-wrap">
+              <label htmlFor="desiredCapacity">Number of People</label>
+              <input
+                id="desiredCapacity"
+                type="number"
+                defaultValue="1"
+                required></input>
+              <button>-</button>
+              <button>+</button>
+            </div>
+          </div>
         </div>
         <button type="submit">Submit</button>
       </form>
