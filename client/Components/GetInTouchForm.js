@@ -88,29 +88,29 @@ const GetInTouchForm = ( { handleFormChange }) => {
           </div>
         </div>
         <div className="cell-container">
-        <div className="form-item cell">
-          <div className="cell-wrap">
-            <label htmlFor="moveInDateBtn">Move-in date</label>
-            <button id="moveInDataBtn" type="button" className="move-in">Jan 21</button>
-            <input
-              id="moveInDate"
-              name="moveInDate"
-              hidden
-              type="text" />
+          <div className="form-item cell">
+            <div className="cell-wrap">
+              <label htmlFor="moveInDateBtn">Move-in date</label>
+              <button id="moveInDataBtn" type="button" className="move-in">Jan 21</button>
+              <input
+                id="moveInDate"
+                name="moveInDate"
+                hidden
+                type="text" />
+            </div>
           </div>
-        </div>
-        <div className="form-item cell">
-          <div className="cell-wrap">
-            <label htmlFor="desiredCapacity">Number of People</label>
-            <input
-              id="desiredCapacity"
-              type="number"
-              defaultValue="1"
-              required></input>
-            <button>-</button>
-            <button>+</button>
+          <div className="form-item cell">
+            <div className="cell-wrap">
+              <label htmlFor="desiredCapacity">Number of People</label>
+              <input
+                id="desiredCapacity"
+                type="number"
+                defaultValue="1"
+                required></input>
+              <button>-</button>
+              <button>+</button>
+            </div>
           </div>
-        </div>
         </div>
         <button type="submit">Submit</button>
       </form>
