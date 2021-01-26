@@ -18,7 +18,7 @@ const GetInTouchForm = ( { handleFormChange }) => {
   const handleFieldBlur = (e, name) => {
 
     const field = e.target.parentElement;
-    let newState = {...isHidden};
+    const newState = {...isHidden};
     //can eventually add other helper functions here to do some *basic* front end validation
     if (!e.target.value) {
 
@@ -56,7 +56,7 @@ const GetInTouchForm = ( { handleFormChange }) => {
               name="fullName"
               type="text"
               required
-              onFocus={(e) => {handleFormFieldFocus(e)}}
+              onFocus={handleFormFieldFocus}
               onBlur={(e) => {handleFieldBlur(e, e.target.name)}}/>
               <div className="error-message" hidden={isHidden.fullName}>First and last, please.</div>
           </div>
@@ -69,7 +69,7 @@ const GetInTouchForm = ( { handleFormChange }) => {
               name="email"
               type="email"
               required
-              onClick={(e) => {handleFormFieldFocus(e)}}
+              onClick={handleFormFieldFocus}
               onBlur={(e) => {handleFieldBlur(e, e.target.name)}}/>
               <div className="error-message" hidden={isHidden.email}>We need this for confirmations.</div>
           </div>
@@ -82,7 +82,7 @@ const GetInTouchForm = ( { handleFormChange }) => {
               name="phone"
               type="phone"
               required
-              onClick={(e) => {handleFormFieldFocus(e)}}
+              onClick={handleFormFieldFocus}
               onBlur={(e) => {handleFieldBlur(e, e.target.name)}}/>
               <div className="error-message" hidden={isHidden.phone}>Please give us a way to get in contact.</div>
           </div>
@@ -105,7 +105,7 @@ const GetInTouchForm = ( { handleFormChange }) => {
             <input
               id="desiredCapacity"
               type="number"
-              value="1"
+              defaultValue="1"
               required></input>
             <button>-</button>
             <button>+</button>
