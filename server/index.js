@@ -10,12 +10,23 @@ app.use(bodyParser.json());
 
 app.get('/api/availability', async (req, res) => {
   const { id } = req.query;
-  const response = await db.getAvailability(id);
 
-  res.json(response);
-})
+  if (!id) {
 
+    res.status(400).send('Must Supply a ID parameter with request');
 
+  } else {
+
+    const response = await db.getAvailability(id);
+    if (!response) {
+      res.status(400).send('Unable to find ID')
+    } else {
+      res.json(response);
+    }
+
+  }
+
+});
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
