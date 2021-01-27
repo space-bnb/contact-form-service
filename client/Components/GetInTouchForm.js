@@ -38,7 +38,16 @@ const GetInTouchForm = ( { handleFormChange }) => {
 
     }
 
+  };
 
+  const handleMoveInClick = () => {
+
+    const cal = document.getElementById('calendar');
+    if (cal.hasAttribute('hidden')) {
+      cal.removeAttribute('hidden');
+    } else {
+      cal.setAttribute('hidden', true);
+    }
   }
 
   return (
@@ -91,13 +100,9 @@ const GetInTouchForm = ( { handleFormChange }) => {
           <div className="form-item cell">
             <div className="cell-wrap">
               <label htmlFor="moveInDateBtn">Move-in date</label>
-              <button id="moveInDataBtn" type="button" className="move-in">Jan 21</button>
-              <input
-                id="moveInDate"
-                name="moveInDate"
-                hidden
-                type="text" />
+              <button id="moveInDataBtn" type="button" className="move-in" onClick={handleMoveInClick}>Jan 21</button>
             </div>
+            <input id="calendar" type="date" hidden/>
           </div>
           <div className="form-item cell">
             <div className="cell-wrap">

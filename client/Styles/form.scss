@@ -56,12 +56,13 @@
             padding-right: .375rem;
             width: auto;
             height: auto;
-            background: transparent;
+            background: white;
             line-height: 1;
             font-weight: 400;
             display: block;
             position: absolute;
           }
+
           button.move-in {
             appearance: none;
             font-family: inherit;
@@ -198,4 +199,8 @@
 
   }
 
+}
+
+#calendar {
+  margin-top: 5px;
 }
