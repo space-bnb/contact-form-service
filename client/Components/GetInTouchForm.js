@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 
-const GetInTouchForm = ( { handleFormChange }) => {
+const GetInTouchForm = ( { handleFormChange, isAvailable }) => {
 
   const [isHidden, toggleHidden] = useState({
     fullName: true,
     email: true,
     phone: true
   });
+
+  const [numberOfPeople, changeNumberOfPeople] = useState(1);
 
   const handleFormFieldFocus = (e) => {
 
@@ -48,6 +50,17 @@ const GetInTouchForm = ( { handleFormChange }) => {
     } else {
       cal.setAttribute('hidden', true);
     }
+  }
+
+  const handlePeopleChange = (e) => {
+    e.preventDefault();
+    let currentNumber = numberOfPeople;
+    const direction = e.target.classList[0];
+    const input = document.getElementById('desiredCapacity');
+    if (currentNumber === 1 && direction === 'down') return;
+    direction === 'up' ? currentNumber += 1 : currentNumber -=1;
+    input.value = currentNumber;
+    changeNumberOfPeople(currentNumber);
   }
 
   return (
@@ -110,10 +123,10 @@ const GetInTouchForm = ( { handleFormChange }) => {
               <input
                 id="desiredCapacity"
                 type="number"
-                defaultValue="1"
-                required></input>
-              <button>-</button>
-              <button>+</button>
+                defaultValue={numberOfPeople}
+                required />
+              <button className="down" onClick={handlePeopleChange}>-</button>
+              <button className="up" onClick={handlePeopleChange}>+</button>
             </div>
           </div>
         </div>
