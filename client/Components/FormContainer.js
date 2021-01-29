@@ -23,7 +23,7 @@ const FormContainer = ({ isAvailable }) => {
 
   return (
     <div className="sticky-form-wrap">
-      { formType !== 'self-serve' && <div className="availabilityBanner">Building Almost Full!</div> }
+      { (formType !== 'self-serve' && !isAvailable) && <div className="availabilityBanner">Building Almost Full!</div> }
       {form}
     </div>
   )

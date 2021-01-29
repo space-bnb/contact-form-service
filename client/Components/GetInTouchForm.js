@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const GetInTouchForm = ( { handleFormChange, isAvailable }) => {
+const GetInTouchForm = ( { handleFormChange }) => {
 
   const [isHidden, toggleHidden] = useState({
     fullName: true,

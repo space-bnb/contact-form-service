@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
-import './Styles/main.scss'
-import FormContainer from './Components/FormContainer'
+import './Styles/main.scss';
+import FormContainer from './Components/FormContainer';
 
 const App = () => {
 
-  const [isAvailable, updateAvailability] = useState(true)
+  const [isAvailable, updateAvailability] = useState(true);
 
   useEffect(() => {
-    fetch('api/availability/?id=4', {
+    const id = window.location.pathname.split('/')[2];
+    fetch(`/api/availability/?id=${id}`, {
       headers: {
         'Content-Type': 'application/json'
       },
@@ -18,7 +19,9 @@ const App = () => {
     })
     .then(json => {
       const { maxCapacity, currentCapacity } = json;
-      (maxCapacity - currentCapacity) < 100 && updateAvailability(false)
+      if ((maxCapacity - currentCapacity) < 50) {
+         updateAvailability(false);
+      };
     })
   }, []);
 
