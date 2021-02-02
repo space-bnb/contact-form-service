@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const BookATourForm = ( { handleFormChange } ) => {
 
@@ -9,6 +9,16 @@ const BookATourForm = ( { handleFormChange } ) => {
   });
 
   const [numberOfPeople, changeNumberOfPeople] = useState(1);
+
+  const [moveInDate, changeMoveInDate] = useState();
+
+  useEffect(() => {
+    const date = new Date();
+    const month = date.getUTCMonth() + 1;
+    const day = date.getUTCDate();
+    const year = date.getUTCFullYear();
+    changeMoveInDate(`${year}-${month}-${day}`);
+  }, []);
 
   const handleFormFieldFocus = (e) => {
 
@@ -63,6 +73,11 @@ const BookATourForm = ( { handleFormChange } ) => {
     changeNumberOfPeople(currentNumber);
   }
 
+  const handleMoveInDateChange = (e) => {
+    changeMoveInDate(e.target.value);
+    handleMoveInClick();
+  }
+
   return (
     <div className="get-in-touch-form-wrapper">
     <button className="close-form" onClick={() => { handleFormChange('self-serve')}}>X</button>
@@ -113,9 +128,9 @@ const BookATourForm = ( { handleFormChange } ) => {
         <div className="form-item cell">
           <div className="cell-wrap">
             <label htmlFor="moveInDateBtn">Move-in date</label>
-            <button id="moveInDataBtn" type="button" className="move-in" onClick={handleMoveInClick}>Jan 21</button>
+            <button id="moveInDataBtn" type="button" className="move-in" onClick={handleMoveInClick}>{moveInDate}</button>
           </div>
-          <input id="calendar" type="date" hidden/>
+          <input id="calendar" type="date" onChange={handleMoveInDateChange} hidden/>
         </div>
         <div className="form-item cell">
           <div className="cell-wrap">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const GetInTouchForm = ( { handleFormChange }) => {
 
@@ -9,6 +9,16 @@ const GetInTouchForm = ( { handleFormChange }) => {
   });
 
   const [numberOfPeople, changeNumberOfPeople] = useState(1);
+
+  const [moveInDate, changeMoveInDate] = useState();
+
+  useEffect(() => {
+    const date = new Date();
+    const month = date.getUTCMonth() + 1;
+    const day = date.getUTCDate();
+    const year = date.getUTCFullYear();
+    changeMoveInDate(`${year}-${month}-${day}`);
+  }, []);
 
   const handleFormFieldFocus = (e) => {
 
@@ -61,6 +71,11 @@ const GetInTouchForm = ( { handleFormChange }) => {
     direction === 'up' ? currentNumber += 1 : currentNumber -=1;
     input.value = currentNumber;
     changeNumberOfPeople(currentNumber);
+  };
+
+  const handleMoveInDateChange = (e) => {
+    changeMoveInDate(e.target.value);
+    handleMoveInClick();
   }
 
   return (
@@ -113,9 +128,9 @@ const GetInTouchForm = ( { handleFormChange }) => {
           <div className="form-item cell">
             <div className="cell-wrap">
               <label htmlFor="moveInDateBtn">Move-in date</label>
-              <button id="moveInDataBtn" type="button" className="move-in" onClick={handleMoveInClick}>Jan 21</button>
+              <button id="moveInDataBtn" type="button" className="move-in" onClick={handleMoveInClick}>{moveInDate}</button>
             </div>
-            <input id="calendar" type="date" hidden/>
+            <input id="calendar" type="date" onChange={handleMoveInDateChange} hidden/>
           </div>
           <div className="form-item cell">
             <div className="cell-wrap">
