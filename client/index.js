@@ -32,5 +32,5 @@ const App = () => {
   )
 }
 
-const root = document.getElementById('app');
+const root = document.getElementById('contact-service');
 ReactDOM.render(<App />, root);

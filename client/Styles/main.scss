@@ -1,84 +1,83 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-@import "reset.scss";
+  @import "reset.scss";
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+  @import "form.scss";
 
-@import "form.scss";
+  body {
 
-body {
+    font-family: 'Roboto', sans-serif;
 
-  font-family: 'Roboto', sans-serif;
+  }
 
-}
-
-h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 2.25rem;
-  margin-bottom: 1rem;
-}
-
-button {
-  cursor: pointer;
-}
-
-.column-container {
-  display: flex;
-  height: 1000px;
-  width: 33%;
-  flex-direction: column;
-}
-
-.get-in-touch-form-wrapper {
-  border-radius: .25rem;
-  border: 1px solid #e3e3e3;
-  background-color: #f7f7f7;
-  padding: 2rem 1.5rem 1.5rem;
-}
-
-
-.self-serve-wrapper {
-  background-color: #f7f7f7;
-  border: 1px solid #e3e3e3;
-  padding: 2rem 1.5rem 1.5rem;
-
-  .self-serve-cta {
-    padding-bottom: 2em;
-
-    button {
-      background-color: blue;
-      color: #fff;
-    }
-
-    button:hover {
-      background-color: #00c;
-      border-color: #00c;
-    }
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 2.25rem;
+    margin-bottom: 1rem;
   }
 
   button {
+    cursor: pointer;
+  }
+
+  .column-container {
+    display: flex;
+    height: 1000px;
     width: 100%;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1;
-    display: inline-block;
-    border: .0625rem solid blue;
+    flex-direction: column;
+  }
+
+  .get-in-touch-form-wrapper {
     border-radius: .25rem;
-    padding: 1.1875rem 1.4375rem;
-    white-space: nowrap;
-    text-align: center;
-    vertical-align: bottom;
+    border: 1px solid #e3e3e3;
+    background-color: #f7f7f7;
+    padding: 2rem 1.5rem 1.5rem;
   }
 
-  .book-tour {
+
+  .self-serve-wrapper {
+    background-color: #f7f7f7;
+    border: 1px solid #e3e3e3;
+    padding: 2rem 1.5rem 1.5rem;
+
+    .self-serve-cta {
+      padding-bottom: 2em;
+
+      button {
+        background-color: blue;
+        color: #fff;
+      }
+
+      button:hover {
+        background-color: #00c;
+        border-color: #00c;
+      }
+    }
+
     button {
-      background-color: #fff;
-      color: blue;
+      width: 100%;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1;
+      display: inline-block;
+      border: .0625rem solid blue;
+      border-radius: .25rem;
+      padding: 1.1875rem 1.4375rem;
+      white-space: nowrap;
+      text-align: center;
+      vertical-align: bottom;
     }
 
-    button:hover {
-      background-color: #ccf;
+    .book-tour {
+      button {
+        background-color: #fff;
+        color: blue;
+      }
+
+      button:hover {
+        background-color: #ccf;
+      }
     }
+
   }
-
-}
