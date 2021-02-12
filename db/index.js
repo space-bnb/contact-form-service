@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
-mongoose.connect('mongodb://localhost/workspace-capacity');
+const mongo = process.env.DATABASE_URL ? process.env.DATABASE_URL : 'mongodb://localhost/workspace-capacity';
+mongoose.connect(mongo, { useUnifiedTopology: true, useNewUrlParser: true });
 
 let schema = mongoose.Schema({
   _id: Number,
