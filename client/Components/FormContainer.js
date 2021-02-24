@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+const { useState } = React;
+
 import SelfServeOptions from './SelfServeOptions';
 import GetInTouchForm from './GetInTouchForm';
 import BookATourForm from './BookATourForm';

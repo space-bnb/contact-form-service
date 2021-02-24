@@ -1,6 +1,5 @@
 const path = require('path');
-
-// process.traceDeprecation = true;
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
 
@@ -29,5 +28,7 @@ module.exports = {
       }
     ]
   },
-
+  plugins: [
+    new BundleAnalyzerPlugin()
+  ]
 }

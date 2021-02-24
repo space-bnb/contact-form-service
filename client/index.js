@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
+const { useState, useEffect } = React;
+
 import './Styles/main.scss';
 import FormContainer from './Components/FormContainer';
 
@@ -8,7 +8,10 @@ const App = () => {
   const [isAvailable, updateAvailability] = useState(true);
 
   useEffect(() => {
-    const id = window.location.pathname.split('/')[2];
+
+    const splitUrl = window.location.pathname.split('/').filter(el => el);
+    const id = splitUrl[splitUrl.length - 1];
+
     fetch(`/api/availability/?id=${id}`, {
       headers: {
         'Content-Type': 'application/json'
