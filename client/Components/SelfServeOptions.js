@@ -1,8 +1,5 @@
-import React from 'react';
 
 const SelfServeOptions = ({ handleFormChange }) => {
-
-
 
   return (
     <div className="self-serve-wrapper">
